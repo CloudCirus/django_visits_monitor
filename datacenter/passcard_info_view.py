@@ -1,16 +1,9 @@
 from datacenter.models import Passcard
-from datacenter.models import Visit, get_duration
+from datacenter.models import Visit, get_duration, is_visit_long
 from django.shortcuts import render
-from django.utils.timezone import timedelta
 
 
 def passcard_info_view(request, passcode):
-
-    def is_visit_long(duration, minutes=60):
-        tdelta = timedelta(minutes=minutes)
-        if duration > tdelta:
-            return True
-        return False
 
     def get_passcard_visits_context(query):
         this_passcard_visits = []

@@ -11,13 +11,19 @@ def get_duration(visit):
 
 
 def format_duration(duration: timedelta):
-    duration_string = str(duration)
-    _list_with_time = duration_string.split(':')
-    hours = _list_with_time[-3]
-    minutes = _list_with_time[-2]
+    time = str(duration).split(':')
+    hours = time[-3]
+    minutes = time[-2]
     if duration.days:
-        return f'{duration.days}d {hours}:{minutes}'
-    return f'{hours}:{minutes}'
+        return f'{duration.days}д {hours}ч {minutes}мин'
+    return f'{hours}ч {minutes}мин'
+
+
+def is_visit_long(duration, minutes=60):
+    tdelta = timedelta(minutes=minutes)
+    if duration > tdelta:
+        return True
+    return False
 
 
 class Passcard(models.Model):
