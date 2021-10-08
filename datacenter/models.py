@@ -7,7 +7,7 @@ def get_duration(visit):
         delta = visit.leaved_at - visit.entered_at
     else:
         delta = localtime() - visit.entered_at
-    return timedelta(seconds=delta.seconds)
+    return delta
 
 
 def format_duration(duration: timedelta):
