@@ -13,22 +13,25 @@ The service displays three web pages:
 
 Python3 must be installed (3.8.5+).
 
-- Install requirements, use:
+1. Install requirements, use:
 ```
 pip install -r requirements.txt
 ```
-- Create .env file inside project dir.
-- Add vars in .env, like:
+2. Create .env file inside project dir.
+3. Add vars into .env, like:
 ```
-DEBUG=true (or false)
-
+ALLOWED_HOSTS=localhost,127.0.0.1,0.0.0.0
+```
+```
 SECRET_KEY=your_django_project_key
-
-DB_HOST=your_db_host
-DB_PORT=your db_port
-DB_NAME=your_db_name
-DB_USER=your_db_user
-DB_PASSWORD=your_db_password
+```
+Without DEBUG var default set is False.
+```
+DEBUG=True
+```
+Postgres DB example:
+```
+DB_URL=postgres://db_name:db_password@db_host:db_port/db_name
 ```
 
 ## Getting Started 
